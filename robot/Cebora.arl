@@ -1,0 +1,366 @@
+iodev CeboraRS232
+
+String Arc_On = "0"
+String RobotReady = "0"
+String OperMode_0 = "0"
+String OperMode_1 = "0"
+String OperMode_2 = "0"
+String AnalogSwap = "0"
+String ProtocolMode = "0"
+String GasTest = "0"
+String WireInching = "0"
+String WireRetract = "0"
+String SourceErrReset = "0"
+String TouchSensing = "0"
+String BlowTrough = "0"
+String JOB_0 = "0"
+String JOB_1 = "0"
+String JOB_2 = "0"
+String JOB_3 = "0"
+String JOB_4 = "0"
+String JOB_5 = "0"
+String JOB_6 = "0"
+String JOB_7 = "0"
+String WeldSim = "0"
+String AnalogSetDis_0 = "0"
+String AnalogSetDis_1 = "0"
+String AnalogSetDis_2 = "0"
+String AnalogSetDis_3 = "0"
+String AnalogSetDis_4 = "0"
+String AnalogSetDis_5 = "0"
+String DC_AC_Disable = "0"
+String PLS_Disable = "0"
+String DC_AC = "0"
+String PLS = "0"
+String PilotArc = "0"
+string sWCurrent = "00000"
+string sWHSpeed = "00000"
+string sPLSRaito = "00000"
+string sWLSpeed = "00000"
+string sPGFlow = "00000"
+string sSGFlow = "00000"
+
+string ReadMASS
+
+//SetBoolParameters
+func string SET(string p, int v)
+String PrepareBool
+switch(p)
+
+case "Arc_On":
+Arc_On = tostr(v)
+
+case "RobotReady":
+RobotReady = tostr(v)
+
+case "OperMode_0":
+OperMode_0 = tostr(v)
+
+case "OperMode_1":
+OperMode_1 = tostr(v)
+
+case "OperMode_2":
+OperMode_2 = tostr(v)
+
+case "AnalogSwap":
+AnalogSwap = tostr(v)
+
+case "GasTest":
+GasTest = tostr(v)
+
+case "WireInching":
+WireInching = tostr(v)
+
+case "WireRetract":
+WireRetract = tostr(v)
+
+case "SourceErrReset":
+SourceErrReset = tostr(v)
+
+case "TouchSensing":
+TouchSensing = tostr(v)
+
+case "BlowTrough":
+BlowTrough = tostr(v)
+
+case "JOB_0":
+JOB_0 = tostr(v)
+
+case "JOB_1":
+JOB_1 = tostr(v)
+
+case "JOB_2":
+JOB_2 = tostr(v)
+
+case "JOB_3":
+JOB_3 = tostr(v)
+
+case "JOB_4":
+JOB_4 = tostr(v)
+
+case "JOB_5":
+JOB_5 = tostr(v)
+
+case "JOB_6":
+JOB_6 = tostr(v)
+
+case "JOB_7":
+JOB_7 = tostr(v)
+
+case "WeldSim":
+WeldSim = tostr(v)
+
+case "AnalogSetDis_0":
+AnalogSetDis_0 = tostr(v)
+
+case "AnalogSetDis_1":
+AnalogSetDis_1 = tostr(v)
+
+case "AnalogSetDis_2":
+AnalogSetDis_2 = tostr(v)
+
+case "AnalogSetDis_3":
+AnalogSetDis_3 = tostr(v)
+
+case "AnalogSetDis_4":
+AnalogSetDis_4 = tostr(v)
+
+case "AnalogSetDis_5":
+AnalogSetDis_5 = tostr(v)
+
+case "DC_AC_Disable":
+DC_AC_Disable = tostr(v)
+
+case "PLS_Disable":
+PLS_Disable = tostr(v)
+
+case "DC_AC":
+DC_AC = tostr(v)
+
+case "PLS":
+PLS = tostr(v)
+
+case "PilotArc":
+PilotArc = tostr(v)
+endswitch
+
+PrepareBool = Arc_On + RobotReady + OperMode_0 + OperMode_1 + OperMode_2 + AnalogSwap + ProtocolMode + GasTest + WireInching + WireRetract + SourceErrReset + TouchSensing + BlowTrough + JOB_0 + JOB_1 + JOB_2 + JOB_3 + JOB_4 + JOB_5 + JOB_6 + JOB_7 + WeldSim + AnalogSetDis_0 + AnalogSetDis_1 + AnalogSetDis_2 + AnalogSetDis_3 + AnalogSetDis_4 + AnalogSetDis_5 + DC_AC_Disable + PLS_Disable + DC_AC + PLS + PilotArc
+return PrepareBool 
+endfunc
+//SetBoolParameters
+
+func string SET_WeldCurrent(int i)
+if (i >= 500)
+sWCurrent = "00500"
+elseif (i < 500 && i>= 100)
+sWCurrent = "00" + tostr(i)
+elseif (i < 100 && i >= 10)
+sWCurrent = "000" + tostr(i)
+elseif (i < 10 && i >= 0)
+sWCurrent = "0000" + tostr(i)
+elseif (i < 0)
+sWCurrent = "00000"
+endif
+return sWCurrent
+endfunc
+
+func string SET_WireHighSpd(double d)
+if (d >= 10)
+sWHSpeed = "010.0"
+elseif (d < 10 && d >= 0)
+if (strlen(tostr(d)) == 3)
+sWHSpeed = "00" + tostr(d)
+else
+sWHSpeed = "00" + tostr(toint(d)) + "." + tostr(toint(10*(abs(d - toint(d)))))
+endif
+elseif (d < 0 && d > -10)
+if (strlen(tostr(d)) == 4)
+sWHSpeed = substr(tostr(d), 0, 1) + "0" + substr(tostr(d), 1)
+else
+sWHSpeed = substr(tostr(d), 0, 1) + "0" + substr(tostr(d), 1, 1) + "." + tostr(toint(10*(abs(d - toint(d)))))
+endif
+elseif (d <= -10)
+sWHSpeed = "-10.0"
+endif
+return sWHSpeed
+endfunc
+
+func string SET_PLS_Ratio(int i)
+if (i >= 100)
+sPLSRaito = "00100"
+elseif (i < 100 && i>= 10)
+sPLSRaito = "000" + tostr(i)
+elseif (i < 10 && i >= 0)
+sPLSRaito = "0000" + tostr(i)
+elseif (i < 0)
+sPLSRaito = "00000"
+endif
+return sPLSRaito
+endfunc
+
+func string SET_WireLowSpd(double d)
+if (d >= 10)
+sWLSpeed = "010.0"
+elseif (d < 10 && d >= 0)
+if (strlen(tostr(d)) == 3)
+sWLSpeed = "00" + tostr(d)
+else
+sWLSpeed = "00" + tostr(toint(d)) + "." + tostr(toint(10*(abs(d - toint(d)))))
+endif
+elseif (d < 0 && d > -10)
+if (strlen(tostr(d)) == 4)
+sWLSpeed = substr(tostr(d), 0, 1) + "0" + substr(tostr(d), 1)
+else
+sWLSpeed = substr(tostr(d), 0, 1) + "0" + substr(tostr(d), 1, 1) + "." + tostr(toint(10*(abs(d - toint(d)))))
+endif
+elseif (d <= -10)
+sWLSpeed = "-10.0"
+endif
+return sWLSpeed
+endfunc
+
+func string SET_PlasmaGasFlow(double d)
+if (d >= 10)
+sPGFlow = "010.0"
+elseif (d < 10 && d >= 0.2)
+if (strlen(tostr(d)) == 3)
+sPGFlow = "00" + tostr(d)
+else
+sPGFlow = "00" + tostr(toint(d)) + "." + tostr(toint(10*(abs(d - toint(d)))))
+endif
+elseif (d < 0.2)
+sPGFlow= "000.2"
+endif
+return sPGFlow
+endfunc
+
+func string SET_ShieldGasFlow(double d)
+if (d >= 30)
+sSGFlow = "030.0"
+elseif (d < 30 && d >= 10)
+if (strlen(tostr(d)) == 4)
+sSGFlow = "0" + tostr(d)
+else
+sSGFlow = "0" + tostr(toint(d)) + "." + tostr(toint(10*(abs(d - toint(d)))))
+endif
+elseif (d < 10 && d >= 5)
+if (strlen(tostr(d)) == 3)
+sSGFlow = "00" + tostr(d)
+else
+sSGFlow = "00" + tostr(toint(d)) + "." + tostr(toint(10*(abs(d - toint(d)))))
+endif
+elseif (d < 5)
+sSGFlow = "005.0"
+endif
+return sSGFlow
+endfunc
+
+func string Random()
+string Srand = tostr(rand())
+string random = Srand
+if (strlen(Srand ) < 5)
+for (int i = 0; i < 5 - strlen(Srand); i++)
+random = random + "0"
+endfor
+elseif (strlen(Srand ) > 5)
+random = substr(Srand, 0, 5)
+else 
+random = Srand
+endif
+return random
+endfunc
+
+//GET_PARAMETERS
+func string GET(string p)
+string GetParameter = "0"
+if (strlen(ReadMASS) == 50)
+if (substr(ReadMASS, 0, 1) == "S" && substr(ReadMASS, 49, 1) == "F")
+switch(p)
+
+case "CurrFlow":
+GetParameter = substr(ReadMASS, 1, 1)
+
+case "ProcActive":
+GetParameter = substr(ReadMASS, 2, 1)
+
+case "MainCurrent":
+GetParameter = substr(ReadMASS, 3, 1)
+
+case "CollisProtect":
+GetParameter = substr(ReadMASS, 4, 1)
+
+case "PowSourReady":
+GetParameter = substr(ReadMASS, 5, 1)
+
+case "Commun_Ready":
+GetParameter = substr(ReadMASS, 6, 1)
+
+case "ErrNumber_0":
+GetParameter = substr(ReadMASS, 7, 1)
+
+case "ErrNumber_1":
+GetParameter = substr(ReadMASS, 8, 1)
+
+case "ErrNumber_2":
+GetParameter = substr(ReadMASS, 9, 1)
+
+case "ErrNumber_3":
+GetParameter = substr(ReadMASS, 10, 1)
+
+case "ErrNumber_4":
+GetParameter = substr(ReadMASS, 11, 1)
+
+case "ErrNumber_5":
+GetParameter = substr(ReadMASS, 12, 1)
+
+case "ErrNumber_6":
+GetParameter = substr(ReadMASS, 13, 1)
+
+case "ErrNumber_7":
+GetParameter = substr(ReadMASS, 14, 1)
+
+case "PLS_Sync":
+GetParameter = substr(ReadMASS, 15, 1)
+
+case "PilotArc":
+GetParameter = substr(ReadMASS, 16, 1)
+
+case "StikingRem":
+GetParameter = substr(ReadMASS, 17, 1)
+
+case "WireAvailale":
+GetParameter = substr(ReadMASS, 18, 1)
+
+case "WeldVoltage":
+GetParameter = substr(ReadMASS, 19, 5)
+
+case "WeldCurrent":
+GetParameter = substr(ReadMASS, 24, 5)
+
+case "MotorCurrent":
+GetParameter = substr(ReadMASS, 29, 5)
+
+case "WireFeedSPD":
+GetParameter = substr(ReadMASS, 34, 5)
+
+case "PlasmaGasFlw":
+GetParameter = substr(ReadMASS, 39, 5)
+
+case "ShieldGasFlw":
+GetParameter = substr(ReadMASS, 44, 5)
+
+endswitch
+return GetParameter
+endif
+endif
+endfunc
+//GET_PARAMETERS
+
+func void main()
+open(CeboraRS232,"/dev/ttyS0",19200,8,one,none)
+string SendMASS
+SendMASS ="S" + SET("", 0) + sWCurrent + sWHSpeed + sPLSRaito + sWLSpeed + sPGFlow + sSGFlow + Random() + "F"
+write(CeboraRS232, SendMASS)
+waituntil read(CeboraRS232, ReadMASS, 50)
+clearbuff(CeboraRS232)
+endfunc

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="892" height="1554" viewBox="0 0 892 1554" font-family="Arial, Helvetica, sans-serif" font-size="13">
+<defs><marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="446.0" y="30" text-anchor="middle" font-size="16" font-weight="bold">Запуск дуги з програми робота</text>
+<path d="M197.0,104.0 L197.0,150.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M197.0,206.0 L197.0,252.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M197.0,342.0 L197.0,388.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M197.0,432.0 L197.0,478.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M197.0,534.0 L197.0,580.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M197.0,624.0 L197.0,670.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M197.0,750.6 L197.0,796.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="203.0" y="764.5999999999999" font-size="12" font-style="italic">Так</text>
+<path d="M329.4,710.3 L697.0,710.3 L697.0,796.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="335.4" y="704.3" font-size="12" font-style="italic">Ні</text>
+<path d="M197.0,840.6 L197.0,899.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M197.0,943.6 L197.0,1002.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M197.0,1072.6 L197.0,1118.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="203.0" y="1086.6" font-size="12" font-style="italic">Так</text>
+<path d="M304.9,1037.6 L447.0,1037.6 L447.0,1133.1" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="310.92" y="1031.6" font-size="12" font-style="italic">Ні</text>
+<path d="M197.0,1191.6 L197.0,1443.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M697.0,840.6 L697.0,886.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M697.0,956.6 L697.0,1015.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="703.0" y="970.6" font-size="12" font-style="italic">Так</text>
+<path d="M697.0,1059.6 L697.0,1429.6 L197.0,1429.6 L197.0,1443.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M447.0,1177.1 L447.0,1237.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M447.0,1307.6 L447.0,1353.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="453.0" y="1321.6" font-size="12" font-style="italic">Так</text>
+<path d="M447.0,1397.6 L447.0,1429.6 L197.0,1429.6 L197.0,1443.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/>
+<path d="M622.0,921.6 L610.0,921.6 L610.0,966.6 L46.6,966.6 L46.6,558.0 L197.0,558.0 L197.0,580.0" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="592.0" y="915.6" font-size="12" font-style="italic">Ні</text>
+<path d="M372.0,1272.6 L360.0,1272.6 L360.0,1317.6 L30.6,1317.6 L30.6,877.6 L197.0,877.6 L197.0,899.6" fill="none" stroke="#000" stroke-width="1.3" marker-end="url(#a)"/><text x="342.0" y="1266.6" font-size="12" font-style="italic">Ні</text>
+<rect x="127.0" y="60.0" width="140" height="44" rx="22.0" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="86.55" text-anchor="middle">Початок</text>
+<rect x="85.39999999999999" y="150.0" width="223.20000000000002" height="56" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="174.05" text-anchor="middle">Рух у точки p1 і p2</text><text x="197.0" y="191.05" text-anchor="middle">старт таймера обміну 0,1 с</text>
+<rect x="96.2" y="252.0" width="201.6" height="90" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="276.05" text-anchor="middle">RobotReady, OperMode_1,</text><text x="197.0" y="293.05" text-anchor="middle">OperMode_2 := 1</text><text x="197.0" y="310.05" text-anchor="middle">струм, газ плазми,</text><text x="197.0" y="327.05" text-anchor="middle">захисний газ</text>
+<path d="M102.0,388.0 H270.0 A22.0,22.0 0 0 1 270.0,432.0 H102.0 Z" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="414.55" text-anchor="middle">Очікування 1 с</text>
+<rect x="102.0" y="478.0" width="190" height="56" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="502.05" text-anchor="middle">PilotArc := 1</text><text x="197.0" y="519.05" text-anchor="middle">j := 0, i := 0</text>
+<path d="M102.0,580.0 H270.0 A22.0,22.0 0 0 1 270.0,624.0 H102.0 Z" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="606.55" text-anchor="middle">Очікування 1 с</text>
+<polygon points="197.0,670.0 329.4,710.3 197.0,750.5999999999999 64.60000000000002,710.3" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="706.3499999999999" text-anchor="middle">Зворотний PilotArc =</text><text x="197.0" y="723.3499999999999" text-anchor="middle">1?</text>
+<rect x="102.0" y="796.6" width="190" height="44" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="823.15" text-anchor="middle">Arc_On := 1</text>
+<path d="M102.0,899.6 H270.0 A22.0,22.0 0 0 1 270.0,943.6 H102.0 Z" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="926.15" text-anchor="middle">Очікування 1 с</text>
+<polygon points="197.0,1002.5999999999999 304.92,1037.6 197.0,1072.6 89.08,1037.6" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="1042.1499999999999" text-anchor="middle">MainCurrent = 1?</text>
+<rect x="102.0" y="1118.6" width="190" height="73" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="1142.6499999999999" text-anchor="middle">Рух у точку p3</text><text x="197.0" y="1159.6499999999999" text-anchor="middle">Arc_On := 0</text><text x="197.0" y="1176.6499999999999" text-anchor="middle">PilotArc := 0</text>
+<rect x="127.0" y="1443.6" width="140" height="44" rx="22.0" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="197.0" y="1470.1499999999999" text-anchor="middle">Кінець</text>
+<rect x="602.0" y="796.6" width="190" height="44" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="697.0" y="823.15" text-anchor="middle">j := j + 1</text>
+<polygon points="697.0,886.6 772.0,921.6 697.0,956.6 622.0,921.6" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="697.0" y="926.15" text-anchor="middle">j = 5?</text>
+<rect x="602.0" y="1015.5999999999999" width="190" height="44" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="697.0" y="1042.1499999999999" text-anchor="middle">PilotArc := 0</text>
+<rect x="352.0" y="1133.1" width="190" height="44" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="447.0" y="1159.6499999999999" text-anchor="middle">i := i + 1</text>
+<polygon points="447.0,1237.6 522.0,1272.6 447.0,1307.6 372.0,1272.6" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="447.0" y="1277.1499999999999" text-anchor="middle">i = 10?</text>
+<rect x="352.0" y="1353.6" width="190" height="44" fill="#fff" stroke="#000" stroke-width="1.4"/><text x="447.0" y="1380.1499999999999" text-anchor="middle">Arc_On := 0</text>
+</svg>

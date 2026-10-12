@@ -1,0 +1,81 @@
+import "/USB/sda1/Cebora/Cebora.arl"
+clock c
+
+func void DataTransfer()
+Cebora::main()
+//print "Shield gas flow= " + Cebora::GET("ShieldGasFlw") + ", l/min"
+//print "Plasma gas flow= " + Cebora::GET("PlasmaGasFlw") + ", l/min"
+//print "Motor current = " + Cebora::GET("MotorCurrent") + ", A"
+//print "Wire speed = " + Cebora::GET("WireFeedSPD") + ", m/min"
+print "Current = " + Cebora::GET("WeldCurrent") + ", A"
+print "Voltage = " + Cebora::GET("WeldVoltage") + ", V"
+//print to:file,filepath:"/home/ae/USB/sda1/Cebora/mylog",Cebora::GET("WeldCurrent"),endl
+clkreset(c)
+endfunc
+
+func void inthandler1() // По F1
+stopmove fast
+Cebora::SET("Arc_On ", 0)
+Cebora::SET("PilotArc", 0)
+pause
+endfunc
+
+func void inthandler2() // По датчику зіткнення
+stopmove fast
+Cebora::SET("Arc_On ", 0)
+Cebora::SET("PilotArc", 0)
+pause
+endfunc
+
+func void main()
+interrupt 0, when: clkread(c) >= 0.1, do: DataTransfer()
+interrupt 1, when: getdi(1), do: inthandler1()
+interrupt 2, when: !getdi(3), do: inthandler2()
+lin p:p1,v:v1
+lin p:p2,v:v1
+clkstart(c)
+
+Startcycle:
+Cebora::SET("RobotReady", 1)
+Cebora::SET("OperMode_1", 1)
+Cebora::SET("OperMode_2", 1)
+Cebora::SET_WeldCurrent(75)
+Cebora::SET_PlasmaGasFlow(1.0)
+Cebora::SET_ShieldGasFlow(30.0) 
+waittime 1
+
+int i = 0
+int j = 0
+Cebora::SET("PilotArc", 1)
+tryPilot:
+waittime 1
+if (Cebora::GET("PilotArc") == "1")
+   Cebora::SET("Arc_On", 1)
+   j = 0
+   tryMain:
+   waittime 1
+   if (Cebora::GET("MainCurrent") == "1")
+      lin p:p3,v:v1
+      waittime 0
+      Cebora::SET("Arc_On", 0)
+      Cebora::SET("PilotArc", 0)
+      i = 0
+   else
+      i = i + 1
+      if (i == 10)
+         Cebora::SET("Arc_On", 0)
+      else
+         goto tryMain
+      endif
+   endif
+else
+   j = j + 1
+   if (j == 5)
+      Cebora::SET("PilotArc", 0)
+   else
+      goto tryPilot
+   endif
+endif
+
+//goto Startcycle
+endfunc

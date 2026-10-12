@@ -1,0 +1,15 @@
+*.bootinfo
+*.bootinfo_guids
+*.compileinfo
+*.precompileinfo
+*.Application.map
+*.core
+*.err
+*.opt
+*.project.~u
+*.project.bak
+backup/
+*.bak
+Thumbs.db
+desktop.ini
+~$*
