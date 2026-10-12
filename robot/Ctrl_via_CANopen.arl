@@ -15,14 +15,14 @@ endfunc
 
 func void inthandler1() // По F1
 stopmove fast
-Cebora::SET("Arc_On ", 0)
+Cebora::SET("Arc_On", 0)
 Cebora::SET("PilotArc", 0)
 pause
 endfunc
 
 func void inthandler2() // По датчику зіткнення
 stopmove fast
-Cebora::SET("Arc_On ", 0)
+Cebora::SET("Arc_On", 0)
 Cebora::SET("PilotArc", 0)
 pause
 endfunc
